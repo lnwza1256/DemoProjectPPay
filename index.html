@@ -9,50 +9,27 @@
 <body>
 
     <div class="container">
-        <!-- From Uiverse.io by adamgiebl --> 
-<div class="form-control">
-  <input id="input1" class="input input-alt" placeholder="Type something intelligent" required="" type="text">
-  <span class="input-border input-border-alt"></span>
-</div>
-<div class="form-control">
-  <input id="input2" class="input input-alt" placeholder="Type something intelligent" required="" type="text">
-  <span class="input-border input-border-alt"></span>
-</div>
-        <!-- <input type="number" id="input1" calss="number">
-        <input type="number" step="0.01" min="0.00" placeholder="XX.XX" id="input2" class="amount"> -->
-    
-    <!-- <button onclick="Convert();" class="button">test</button> -->
 
-    <!-- From Uiverse.io by vinodjangid07 --> 
+<div class="form-control">
+  <input id="input1" class="input input-alt" placeholder="พร้อมเพย์ เบอร์โทรเท่านั้น" required="" type="text">
+  <span class="input-border input-border-alt"></span>
+</div>
+<div class="form-control">
+  <input id="input2" class="input input-alt" placeholder="รองรับ 00.00-99.99 เท่านั้น" required="" type="text">
+  <span class="input-border input-border-alt"></span>
+</div>
+
 <button class="Btn-Container" onclick="Convert();">
-  <span class="text">let's go!</span>
+  <span class="text">สร้างQR</span>
   <span class="icon-Container">
-    <svg
-      width="16"
-      height="19"
-      viewBox="0 0 16 19"
-      fill="nones"  
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="1.61321" cy="1.61321" r="1.5" fill="black"></circle>
-      <circle cx="5.73583" cy="1.61321" r="1.5" fill="black"></circle>
-      <circle cx="5.73583" cy="5.5566" r="1.5" fill="black"></circle>
-      <circle cx="9.85851" cy="5.5566" r="1.5" fill="black"></circle>
-      <circle cx="9.85851" cy="9.5" r="1.5" fill="black"></circle>
-      <circle cx="13.9811" cy="9.5" r="1.5" fill="black"></circle>
-      <circle cx="5.73583" cy="13.4434" r="1.5" fill="black"></circle>
-      <circle cx="9.85851" cy="13.4434" r="1.5" fill="black"></circle>
-      <circle cx="1.61321" cy="17.3868" r="1.5" fill="black"></circle>
-      <circle cx="5.73583" cy="17.3868" r="1.5" fill="black"></circle>
-    </svg>
   </span>
 </button>
 
 
-    <h3>ภาพที่ได้รับ:</h3>
+    <h3>QR code:</h3>
     <img id="preview" src="" width="300" alt="ภาพจะอยู่ตรงนี้">
     <div>
-    <button class="Btn">
+    <button class="Btn" onclick="downloadImage()">
     <svg class="svgIcon" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
     <span class="icon2"></span>
     <span class="tooltip">Download</span>
@@ -61,7 +38,20 @@
     <img id="qrImage"/>
 </div>
 
-    
+    <script>
+function downloadImage() {
+  const img = document.getElementById('qrImage');
+  const imageUrl = img.src;
+  const fileName = 'qrImage.jpg';
+
+  const link = document.createElement('a');
+  link.href = imageUrl;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+</script>
     <script src="script.js"></script>
 
 </body>
