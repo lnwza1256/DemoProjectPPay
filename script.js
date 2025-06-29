@@ -55,7 +55,7 @@ const emv = A8;
     console.log(emv)
 
     const text = emv
-fetch("http://localhost:5000/generate", {
+fetch(" https://223c-45-91-134-114.ngrok-free.app/generate", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
